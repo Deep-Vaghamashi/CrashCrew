@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3977361895410825052}
   - component: {fileID: -5674813480113064674}
   - component: {fileID: 484129192141974398}
+  - component: {fileID: 4189269940495909986}
+  - component: {fileID: 7543940284919385970}
   m_Layer: 0
   m_Name: PlayerCar
   m_TagString: Untagged
@@ -141,7 +143,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 64
   m_CollisionDetection: 2
 --- !u!114 &3977361895410825052
 MonoBehaviour:
@@ -231,3 +233,37 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   moveSpeed: 10
   turnSpeed: 100
+--- !u!114 &4189269940495909986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6080897055952574760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ef7b66cd452d740925c108f15431ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  ShowTopMostFoldoutHeaderGroup: 1
+  maxHealth: 100
+  CurrentHealth:
+    UpdateTraits:
+      MinSecondsBetweenUpdates: 0
+      MaxSecondsBetweenUpdates: 0
+    m_InternalValue: 100
+--- !u!114 &7543940284919385970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6080897055952574760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2353ccfe0a8f2a14f983e57e0ed7cd4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionDamage
+  ShowTopMostFoldoutHeaderGroup: 1
+  minimumImpactSpeed: 3
+  damageMultiplier: 5
