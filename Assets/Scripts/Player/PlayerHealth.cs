@@ -41,19 +41,37 @@ public class PlayerHealth : NetworkBehaviour
     {
         NetworkObject networkObject = GetComponent<NetworkObject>();
 
-        if (networkObject != null)
+        if (networkObject == null)
+            return;
+
+        ulong clientId = OwnerClientId;
+
+        PlayerRespawnManager respawnManager =
+            FindFirstObjectByType<PlayerRespawnManager>();
+
+        networkObject.Despawn();
+
+        if (respawnManager != null)
         {
-            networkObject.Despawn();
+            respawnManager.RequestRespawn(clientId);
         }
     }
 
-    //private void OnGUI()
-    //{
-    //    if (!IsOwner) return;
+    public void ResetHealth()
+    {
+        if (!IsServer)
+            return;
 
-    //    GUI.Label(
-    //        new Rect(20, 140, 300, 30),
-    //        "Health: " + Mathf.CeilToInt(CurrentHealth.Value)
-    //        );
-    //}
+        CurrentHealth.Value = maxHealth;
+    }
+
+    private void OnGUI()
+    {
+        if (!IsOwner) return;
+
+        GUI.Label(
+            new Rect(20, 140, 300, 30),
+            "Health: " + Mathf.CeilToInt(CurrentHealth.Value)
+            );
+    }
 }
