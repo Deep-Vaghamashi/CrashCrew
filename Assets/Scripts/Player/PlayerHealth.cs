@@ -20,7 +20,7 @@ public class PlayerHealth : NetworkBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, PlayerScore attackerScore)
     {
         if (!IsServer)
             return;
@@ -33,6 +33,12 @@ public class PlayerHealth : NetworkBehaviour
         if (CurrentHealth.Value <= 0f)
         {
             CurrentHealth.Value = 0f;
+
+            if (attackerScore != null)
+            {
+                attackerScore.AddScore(100);
+            }
+
             DestroyPlayer();
         }
     }

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 484129192141974398}
   - component: {fileID: 4189269940495909986}
   - component: {fileID: 7543940284919385970}
+  - component: {fileID: 2259276801314940875}
   m_Layer: 0
   m_Name: PlayerCar
   m_TagString: Untagged
@@ -267,3 +268,21 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   minimumImpactSpeed: 3
   damageMultiplier: 5
+--- !u!114 &2259276801314940875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6080897055952574760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be407a6694edb54aacc5913e1be3b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerScore
+  ShowTopMostFoldoutHeaderGroup: 1
+  Score:
+    UpdateTraits:
+      MinSecondsBetweenUpdates: 0
+      MaxSecondsBetweenUpdates: 0
+    m_InternalValue: 0

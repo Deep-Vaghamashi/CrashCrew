@@ -4,6 +4,7 @@ using Unity.Netcode;
 public class PlayerCollisionDamage : NetworkBehaviour
 {
     [SerializeField] private float minimumImpactSpeed = 3f;
+    [SerializeField] private float heavyCrashSpeed = 8f;
     [SerializeField] private float damageMultiplier = 5f;
 
     private void OnCollisionEnter(Collision collision)
@@ -24,8 +25,20 @@ public class PlayerCollisionDamage : NetworkBehaviour
             return;
 
         float damage =
-            (impactSpeed - minimumImpactSpeed) * damageMultiplier;
+    (impactSpeed - minimumImpactSpeed) * damageMultiplier;
 
-        otherHealth.TakeDamage(damage);
+        PlayerScore attackerScore = GetComponent<PlayerScore>();
+
+        otherHealth.TakeDamage(damage, attackerScore);
+
+        if (attackerScore != null)
+        {
+            attackerScore.AddScore(10);
+
+            if (impactSpeed >= heavyCrashSpeed)
+            {
+                attackerScore.AddScore(25);
+            }
+        }
     }
 }
