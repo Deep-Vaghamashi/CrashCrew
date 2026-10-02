@@ -116,7 +116,7 @@ Packages/packages-lock.json linguist-generated
 *.jpeg                  lfs
 *.jpg                   lfs
 *.pict                  lfs
-*.png                   lfs
+*.png                   binary
 *.psd                   lfs
 *.tga                   lfs
 *.tif                   lfs
@@ -135,7 +135,7 @@ Packages/packages-lock.json linguist-generated
 *.so                    lfs
 # Fonts
 *.otf                   lfs
-*.ttf                   lfs
+*.ttf                   binary
 # Executable/Installer
 *.apk                   lfs
 *.exe                   lfs
