@@ -12,6 +12,14 @@ public class PlayerCollisionDamage : NetworkBehaviour
         if (!IsServer)
             return;
 
+        GameManager gameManager = FindFirstObjectByType<GameManager>();
+
+        if (gameManager != null &&
+            gameManager.CurrentState.Value != GameManager.MatchState.Playing)
+        {
+            return;
+        }
+
         PlayerHealth otherHealth =
             collision.gameObject.GetComponent<PlayerHealth>();
 

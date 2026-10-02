@@ -19,6 +19,15 @@ public class PlayerCarController : NetworkBehaviour
         if (!IsOwner)
             return;
 
+        GameManager gameManager = FindFirstObjectByType<GameManager>();
+
+        if (gameManager != null &&
+            gameManager.CurrentState.Value != GameManager.MatchState.Playing)
+        {
+            return;
+        }
+
+
         Vector2 input = Vector2.zero;
 
         if (Keyboard.current != null)
